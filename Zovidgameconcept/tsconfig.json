@@ -1,0 +1,15 @@
+{
+"compilerOptions": {
+    "target":"ES6",
+    "outfile": "main.js",
+    "sourceMap": true,
+    "removeComments": true,
+},
+"include": [
+    "ZOVIDGAMECONCEPT/**/*"
+]
+
+
+
+
+}
