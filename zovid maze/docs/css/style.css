@@ -1,0 +1,71 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 5600px;
+    height: 5600px;
+    border: solid black;
+    background-color: rebeccapurple;
+}
+
+.grid div {
+    width: 200px;
+    height: 200x;
+}
+
+.dots {
+    background-color: chartreuse;
+    border: 90px solid rebeccapurple;
+    box-sizing: border-box;
+}
+
+.wall {
+    background-color: rgb(7, 7, 56);
+}
+
+.zovid {
+    background: rebeccapurple;
+    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/05/zodot.png");
+    width: 200px;
+    height: 200px;
+}
+
+.player {
+    background-color: yellowgreen;
+    border-radius: 50%;
+}
+
+.linky {
+    background-color: whitesmoke;
+    border: 0px;
+    border-radius: 30%;
+}
+
+.stinky {
+    background-color: green;
+    border: 0px;
+    border-radius: 30%;
+}
+
+.winky {
+    background-color: orange;
+    border: 0px;
+    border-radius: 30%;
+}
+
+.danny {
+    background-color: yellow;
+    border: 0px;
+    border-radius: 30%;
+}
+
+.scared-man {
+    background-color: rgb(131, 255, 73);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    outline: 70px dashed rgb(243, 212, 39);
+    outline-offset: -10px;
+    border-radius: 50%;
+}
