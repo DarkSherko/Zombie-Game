@@ -1,0 +1,72 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 5600px;
+    height: 5600px;
+    border: solid black;
+    background-color: rebeccapurple;
+}
+
+.grid div {
+    width: 200px;
+    height: 200x;
+}
+
+.dots {
+    background-color: chartreuse;
+    border: 90px solid rebeccapurple;
+    box-sizing: border-box;
+}
+
+.wall {
+    background-color: rgb(7, 7, 56);
+}
+
+.zovid {
+    background: rebeccapurple;
+    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/05/zodot.png");
+    width: 200px;
+    height: 200px;
+}
+
+.player {
+    background-color: rebeccapurple;
+    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/zbounce.gif");
+    width: 200px;
+    height: 200px;
+}
+
+.linky {
+    border: 0px;
+    border-radius: 30%;
+    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/linky.gif");
+    background-color: rebeccapurple;
+}
+
+.stinky {
+    border: 0px;
+    border-radius: 30%;
+    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/stinky.gif");
+    background-color: rebeccapurple;
+}
+
+.winky {
+    border: 0px;
+    border-radius: 30%;
+    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/winky.gif");
+    background-color: rebeccapurple;
+}
+
+.danny {
+    border: 0px;
+    border-radius: 30%;
+    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/danny.gif");
+    background-color: rebeccapurple;
+}
+
+.scared-man {
+    background-color: rebeccapurple;
+    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/swalk.gif");
+    width: 200px;
+    height: 200px;
+}
