@@ -33,8 +33,8 @@ class Zombie {
 
         window.addEventListener("keydown", (e: KeyboardEvent) => this.onKeyDown(e))
         window.addEventListener("keyup", (e: KeyboardEvent) => this.onKeyUp(e))
-        window.addEventListener("keyright", (e: KeyboardEvent) => this.onKeyRight(e))
-        window.addEventListener("keyleft", (e: KeyboardEvent) => this.onKeyLeft(e))
+        window.addEventListener("keydown", (e: KeyboardEvent) => this.onKeyRight(e))
+        window.addEventListener("keyup", (e: KeyboardEvent) => this.onKeyLeft(e))
     }
 
     public getRectangle() : ClientRect {
