@@ -18,4 +18,4 @@ Voeg geen onnodige bestanden toe aan de GIT
 
 Voor vragen neem contact op met: 
 Sherko Abdul Aziz
-Sherko.loran@gmail.com
+Sherko.loran@gmail.com // 0966776@hr.nl
