@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     ];
     const squares = [];
-
     function createBoard() {
         for (let l = 0; l < layout.length; l++) {
             const square = document.createElement('div');
@@ -42,11 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
             squares.push(square);
             if (layout[l] === 0) {
                 squares[l].classList.add('dots');
-            } else if (layout[l] === 1) {
+            }
+            else if (layout[l] === 1) {
                 squares[l].classList.add('wall');
-            } else if (layout[l] === 2) {
+            }
+            else if (layout[l] === 2) {
                 squares[l].classList.add('house-wall');
-            } else if (layout[l] === 3) {
+            }
+            else if (layout[l] === 3) {
                 squares[l].classList.add('zovid');
             }
         }
@@ -54,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createBoard();
     let playerCurrentIndex = 30;
     squares[playerCurrentIndex].classList.add('player');
-
     function movePlayer(e) {
         squares[playerCurrentIndex].classList.remove('player');
         switch (e.keyCode) {
@@ -88,6 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     !squares[playerCurrentIndex + width].classList.contains('house-wall'))
                     playerCurrentIndex += width;
                 break;
+            case 27:
+                setTimeout;
+                break;
+        }
+        function scrollToPlayer() {
+            document.getElementById('player').scrollIntoView({ behavior: 'smooth' });
         }
         squares[playerCurrentIndex].classList.add('player');
         dotEaten();
@@ -96,15 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
         checkForWin();
     }
     document.addEventListener('keyup', movePlayer);
-
     function dotEaten() {
         if (squares[playerCurrentIndex].classList.contains('dots')) {
             score++;
             scoreDisplay.innerHTML = score;
             squares[playerCurrentIndex].classList.remove('dots');
+            scrollToPlayer;
         }
     }
-
     function zovidEaten() {
         if (squares[playerCurrentIndex].classList.contains('zovid')) {
             score += 10;
@@ -113,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[playerCurrentIndex].classList.remove('zovid');
         }
     }
-
     function unScareMan() {
         man.forEach(man => man.isScared = false);
     }
@@ -138,18 +143,18 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[man.currentIndex].classList.add('man');
     });
     man.forEach(man => moveMan(man));
-
     function moveMan(man) {
         const directions = [-1, +1, width, -width];
         let direction = directions[Math.floor(Math.random() * directions.length)];
-        man.timerId = setInterval(function() {
+        man.timerId = setInterval(function () {
             if (!squares[man.currentIndex + direction].classList.contains('man') &&
                 !squares[man.currentIndex + direction].classList.contains('wall')) {
                 squares[man.currentIndex].classList.remove(man.className);
                 squares[man.currentIndex].classList.remove('man', 'scared-man');
                 man.currentIndex += direction;
                 squares[man.currentIndex].classList.add(man.className, 'man');
-            } else
+            }
+            else
                 direction = directions[Math.floor(Math.random() * directions.length)];
             if (man.isScared) {
                 squares[man.currentIndex].classList.add('scared-man');
@@ -163,21 +168,19 @@ document.addEventListener('DOMContentLoaded', () => {
             checkForGameOver();
         }, man.speed);
     }
-
     function checkForGameOver() {
         if (squares[playerCurrentIndex].classList.contains('man') &&
             !squares[playerCurrentIndex].classList.contains('scared-man')) {
             man.forEach(man => clearInterval(man.timerId));
             document.removeEventListener('keyup', movePlayer);
-            setTimeout(function() { alert("Game Over"); }, 500);
+            setTimeout(function () { alert("Game Over"); }, 500);
         }
     }
-
     function checkForWin() {
         if (score >= 350) {
             man.forEach(man => clearInterval(man.timerId));
             document.removeEventListener('keyup', movePlayer);
-            setTimeout(function() { alert("You have WON!"); }, 491);
+            setTimeout(function () { alert("You have WON!"); }, 491);
         }
     }
 });

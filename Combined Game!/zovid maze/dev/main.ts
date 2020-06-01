@@ -102,7 +102,13 @@ const layout =[
         )
         playerCurrentIndex += width
         break
-    }
+        case 27:
+          setTimeout
+          break
+        }
+    function scrollToPlayer() {
+      document.getElementById('player').scrollIntoView({ behavior: 'smooth' });
+  }
     squares[playerCurrentIndex].classList.add('player')
     dotEaten()
     zovidEaten()
@@ -116,6 +122,7 @@ const layout =[
       score++
       scoreDisplay.innerHTML = score
       squares[playerCurrentIndex].classList.remove('dots')
+      scrollToPlayer
     }
   }
 
@@ -191,7 +198,7 @@ const layout =[
       man.forEach(man => clearInterval(man.timerId))
       document.removeEventListener('keyup', movePlayer)
       setTimeout(function(){ alert("Game Over"); }, 500)
-    }
+      }
   }
 
   //check for a win - more is when this score is reached
