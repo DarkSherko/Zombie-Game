@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         1, 1, 1, 1, 1, 0, 1, 1, 1, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 1, 1, 1, 0, 1, 1, 1, 1, 1,
         4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4,
         1, 0, 1, 1, 1, 1, 1, 1, 1, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 1, 1, 1, 1, 1, 1, 1, 0, 1,
-        1, 0, 0, 0, 1, 1, 0, 0, 0, 4, 1, 1, 1, 1, 1, 1, 1, 1, 4, 0, 0, 0, 1, 1, 0, 0, 0, 1,
+        1, 0, 0, 0, 1, 1, 0, 0, 0, 4, 1, 1, 1, 2, 2, 1, 1, 1, 4, 0, 0, 0, 1, 1, 0, 0, 0, 1,
         1, 1, 1, 0, 1, 1, 0, 1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 0, 1, 1, 0, 1, 1, 1,
         1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1,
         1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1,
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function movePlayer(e) {
         squares[playerCurrentIndex].classList.remove('player');
         switch (e.keyCode) {
-            case 37:
+            case 65:
                 if (playerCurrentIndex % width !== 0 &&
                     !squares[playerCurrentIndex - 1].classList.contains('wall') &&
                     !squares[playerCurrentIndex - 1].classList.contains('house-wall'))
@@ -68,13 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     playerCurrentIndex = 391;
                 }
                 break;
-            case 38:
+            case 87:
                 if (playerCurrentIndex - width >= 0 &&
                     !squares[playerCurrentIndex - width].classList.contains('wall') &&
                     !squares[playerCurrentIndex - width].classList.contains('house-wall'))
                     playerCurrentIndex -= width;
                 break;
-            case 39:
+            case 68:
                 if (playerCurrentIndex % width < width - 1 &&
                     !squares[playerCurrentIndex + 1].classList.contains('wall') &&
                     !squares[playerCurrentIndex + 1].classList.contains('house-wall'))
@@ -83,12 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     playerCurrentIndex = 364;
                 }
                 break;
-            case 40:
+            case 83:
                 if (playerCurrentIndex + width < width * width &&
                     !squares[playerCurrentIndex + width].classList.contains('wall') &&
                     !squares[playerCurrentIndex + width].classList.contains('house-wall'))
                     playerCurrentIndex += width;
                 break;
+            case 27:
+                setTimeout;
+                break;
+        }
+        function scrollToPlayer() {
+            document.getElementById('player').scrollIntoView({ behavior: 'smooth' });
         }
         squares[playerCurrentIndex].classList.add('player');
         dotEaten();
@@ -102,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             score++;
             scoreDisplay.innerHTML = score;
             squares[playerCurrentIndex].classList.remove('dots');
+            scrollToPlayer;
         }
     }
     function zovidEaten() {
@@ -126,9 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     man = [
-        new man('linky', 348, 150),
+        new man('linky', 348, 100),
         new man('stinky', 376, 300),
-        new man('winky', 351, 400),
+        new man('winky', 351, 150),
         new man('danny', 379, 700)
     ];
     man.forEach(man => {
@@ -170,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     function checkForWin() {
-        if (score === 274) {
+        if (score >= 350) {
             man.forEach(man => clearInterval(man.timerId));
             document.removeEventListener('keyup', movePlayer);
             setTimeout(function () { alert("You have WON!"); }, 491);

@@ -20,7 +20,7 @@ const layout =[
     1,1,1,1,1,0,1,1,1,4,1,2,2,2,2,2,2,1,4,1,1,1,0,1,1,1,1,1,
     4,0,0,0,0,0,0,0,0,4,1,2,2,2,2,2,2,1,4,0,0,0,0,0,0,0,0,4,
     1,0,1,1,1,1,1,1,1,4,1,2,2,2,2,2,2,1,4,1,1,1,1,1,1,1,0,1,
-    1,0,0,0,1,1,0,0,0,4,1,1,1,1,1,1,1,1,4,0,0,0,1,1,0,0,0,1,
+    1,0,0,0,1,1,0,0,0,4,1,1,1,2,2,1,1,1,4,0,0,0,1,1,0,0,0,1,
     1,1,1,0,1,1,0,1,1,4,4,4,4,4,4,4,4,4,4,1,1,0,1,1,0,1,1,1,
     1,0,0,0,0,0,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,0,0,0,0,0,1,
     1,0,1,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,0,1,
@@ -64,7 +64,7 @@ const layout =[
   function movePlayer(e) {
     squares[playerCurrentIndex].classList.remove('player')
     switch(e.keyCode) {
-      case 37:
+      case 65:
         if(
             playerCurrentIndex % width !== 0 &&
           !squares[playerCurrentIndex -1].classList.contains('wall') &&
@@ -75,7 +75,7 @@ const layout =[
             playerCurrentIndex = 391
         }
         break
-      case 38:
+      case 87:
         if(
             playerCurrentIndex - width >= 0 &&
           !squares[playerCurrentIndex -width].classList.contains('wall') &&
@@ -83,7 +83,7 @@ const layout =[
           ) 
           playerCurrentIndex -= width
         break
-      case 39:
+      case 68:
         if(
             playerCurrentIndex % width < width - 1 &&
           !squares[playerCurrentIndex +1].classList.contains('wall') &&
@@ -94,7 +94,7 @@ const layout =[
             playerCurrentIndex = 364
         }
         break
-      case 40:
+      case 83:
         if (
             playerCurrentIndex + width < width * width &&
           !squares[playerCurrentIndex +width].classList.contains('wall') &&
@@ -102,7 +102,13 @@ const layout =[
         )
         playerCurrentIndex += width
         break
-    }
+        case 27:
+          setTimeout
+          break
+        }
+    function scrollToPlayer() {
+      document.getElementById('player').scrollIntoView({ behavior: 'smooth' });
+  }
     squares[playerCurrentIndex].classList.add('player')
     dotEaten()
     zovidEaten()
@@ -116,6 +122,7 @@ const layout =[
       score++
       scoreDisplay.innerHTML = score
       squares[playerCurrentIndex].classList.remove('dots')
+      scrollToPlayer
     }
   }
 
@@ -191,12 +198,12 @@ const layout =[
       man.forEach(man => clearInterval(man.timerId))
       document.removeEventListener('keyup', movePlayer)
       setTimeout(function(){ alert("Game Over"); }, 500)
-    }
+      }
   }
 
   //check for a win - more is when this score is reached
   function checkForWin() {
-    if (score === 350) {
+    if (score >= 350) {
       man.forEach(man => clearInterval(man.timerId))
       document.removeEventListener('keyup', movePlayer)
       setTimeout(function(){ alert("You have WON!"); }, 491)

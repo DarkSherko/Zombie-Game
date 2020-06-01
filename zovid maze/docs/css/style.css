@@ -1,4 +1,14 @@
+body {
+    background-color: rgb(7, 7, 56);
+    margin: auto;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 .grid {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     width: 5600px;
@@ -8,8 +18,8 @@
 }
 
 .grid div {
-    width: 200px;
-    height: 200x;
+    width: 3.5714%;
+    height: 3.5714%;
 }
 
 .dots {
@@ -24,14 +34,14 @@
 
 .zovid {
     background: rebeccapurple;
-    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/05/zodot.png");
+    background-image: url("/docs/media/zodot.png");
     width: 200px;
     height: 200px;
 }
 
 .player {
     background-color: rebeccapurple;
-    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/zbounce.gif");
+    background-image: url("/docs/media/zbounce.gif");
     width: 200px;
     height: 200px;
 }
@@ -39,34 +49,34 @@
 .linky {
     border: 0px;
     border-radius: 30%;
-    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/linky.gif");
+    background-image: url("/docs/media/linky.gif");
     background-color: rebeccapurple;
 }
 
 .stinky {
     border: 0px;
     border-radius: 30%;
-    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/stinky.gif");
+    background-image: url("/docs/media/stinky.gif");
     background-color: rebeccapurple;
 }
 
 .winky {
     border: 0px;
     border-radius: 30%;
-    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/winky.gif");
+    background-image: url("/docs/media/winky.gif");
     background-color: rebeccapurple;
 }
 
 .danny {
     border: 0px;
     border-radius: 30%;
-    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/danny.gif");
+    background-image: url("/docs/media/danny.gif");
     background-color: rebeccapurple;
 }
 
 .scared-man {
     background-color: rebeccapurple;
-    background-image: url("https://stud.hosted.hr.nl/0975967/wp-content/uploads/2020/06/swalk.gif");
+    background-image: url("/docs/media/swalk.gif");
     width: 200px;
     height: 200px;
 }
