@@ -33,8 +33,6 @@ class Zombie {
 
         window.addEventListener("keydown", (e: KeyboardEvent) => this.onKeyDown(e))
         window.addEventListener("keyup", (e: KeyboardEvent) => this.onKeyUp(e))
-        window.addEventListener("keydown", (e: KeyboardEvent) => this.onKeyRight(e))
-        window.addEventListener("keyup", (e: KeyboardEvent) => this.onKeyLeft(e))
     }
 
     public getRectangle() : ClientRect {
@@ -45,77 +43,42 @@ class Zombie {
         // Hiermee kan je checken welke keycode achter een bepaalde toets zit. 
         console.log(e.keyCode)
         switch (e.keyCode) {
-            case this.upkey: 
+            case 87: 
                 this.upSpeed = 5
                 break
-            case this.downkey: 
+            case 83: 
                 this.downSpeed = 5
                 break
-            case this.rightkey:
-                this.rightSpeed = 5
+            case 68:
                 break
-            case this.leftkey:
-                this.leftSpeed = 5
+            case 65:
                 break
         }
     }
 
     private onKeyUp(e: KeyboardEvent): void {
         switch (e.keyCode) {
-            case this.upkey: 
-                this.upSpeed = 0
-                break
-            case this.downkey: 
-                this.downSpeed = 0
-                break
-            case this.rightkey: 
-                this.rightSpeed = 0
-                break 
-            case this.leftkey:
-                this.leftSpeed = 0
-                break
-        }
-    }
-
-    private onKeyRight(e: KeyboardEvent): void {
-        switch (e.keyCode) {
-            case this.upkey: 
-                this.upSpeed = 5
-                break
-            case this.downkey: 
+            case 87: 
+            this.upSpeed = 5
+            break
+            case 83: 
                 this.downSpeed = 5
                 break
-            case this.rightkey: 
-                this.rightSpeed = 5
-                break 
-            case this.leftkey:
-                this.leftSpeed = 5
+            case 68:
                 break
-        }
-    }
-
-    private onKeyLeft(e: KeyboardEvent): void {
-        switch (e.keyCode) {
-            case this.upkey: 
-                this.upSpeed = 5
-                break
-            case this.downkey: 
-                this.downSpeed = 5
-                break
-            case this.rightkey: 
-                this.rightSpeed = 5
-                break
-            case this.leftkey:
-                this.leftSpeed = 5
+            case 65:
                 break
         }
     }
 
     public update() {
-        let newY = this.y - this.upSpeed + this.downSpeed + this.rightSpeed + this.leftSpeed
+        let newY = this.y - this.upSpeed + this.downSpeed 
+        let newX = this.x - this.leftSpeed - this.rightSpeed
 
         // check of de paddle binnen beeld blijft
         if (newY > 0 && newY + 100 < window.innerHeight) this.y = newY
+        if (newX > 0 && newX + 100 < window.innerWidth) this.x = newX
+
 
         this.div.style.transform = `translate(${this.x}px, ${this.y}px)`
     }

@@ -20,8 +20,8 @@ score {
 
 
 zombie {
-    background-image: url(../images/zombie1.png);
-    margin: -15px;
+    background-image: url(../images/zombie11.png);
+    margin: 15px;
     width:70px; height:120px;
     background-size: contain;
 }
