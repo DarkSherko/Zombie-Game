@@ -197,7 +197,7 @@ const layout =[
       !squares[playerCurrentIndex].classList.contains('scared-man')) {
       man.forEach(man => clearInterval(man.timerId))
       document.removeEventListener('keyup', movePlayer)
-      setTimeout(function(){ alert("Game Over"); }, 500)
+      setTimeout(function(){  location.replace("fail.html") }, 500)
       }
   }
 
@@ -206,7 +206,7 @@ const layout =[
     if (score >= 350) {
       man.forEach(man => clearInterval(man.timerId))
       document.removeEventListener('keyup', movePlayer)
-      setTimeout(function(){ alert("You have WON!"); }, 491)
+      setTimeout(function(){ location.replace("pass.html") }, 491)
     }
   }
 })
