@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreDisplay = document.getElementById('score');
     const width = 28;
     let score = 0;
-    const layout = [ //:This makes up the movement grid for the player to walk on, the 0 are non walkable
+    const layout = [
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 3, 0, 0, 0, 0, 0, 0, 3, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1,
@@ -33,30 +33,29 @@ document.addEventListener('DOMContentLoaded', () => {
         1, 3, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 3, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     ];
-    const squares = []; //: Defines the squares
+    const squares = [];
+
     function createBoard() {
         for (let l = 0; l < layout.length; l++) {
             const square = document.createElement('div');
             grid.appendChild(square);
             squares.push(square);
             if (layout[l] === 0) {
-                squares[l].classList.add('dots'); //: Adds the dots that you need to catch to gain score
-            }
-            else if (layout[l] === 1) {
+                squares[l].classList.add('dots');
+            } else if (layout[l] === 1) {
                 squares[l].classList.add('wall');
-            }
-            else if (layout[l] === 2) {
+            } else if (layout[l] === 2) {
                 squares[l].classList.add('house-wall');
-            }
-            else if (layout[l] === 3) {
+            } else if (layout[l] === 3) {
                 squares[l].classList.add('zovid');
             }
         }
     }
     createBoard();
-    let playerCurrentIndex = 30; //: Defines the player index spawn position
+    let playerCurrentIndex = 30;
     squares[playerCurrentIndex].classList.add('player');
-    function movePlayer(e) { //: The primary movement function
+
+    function movePlayer(e) {
         squares[playerCurrentIndex].classList.remove('player');
         switch (e.keyCode) {
             case 65:
@@ -93,7 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout;
                 break;
         }
-        function scrollToPlayer() { //: Keeps the player in the middle of the screen
+
+        function scrollToPlayer() {
             document.getElementById('player').scrollIntoView({ behavior: 'smooth' });
         }
         squares[playerCurrentIndex].classList.add('player');
@@ -103,7 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
         checkForWin();
     }
     document.addEventListener('keyup', movePlayer);
-    function dotEaten() { //: Function describing what happens when a dot is eaten in game
+
+    function dotEaten() {
         if (squares[playerCurrentIndex].classList.contains('dots')) {
             score++;
             scoreDisplay.innerHTML = score;
@@ -111,7 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollToPlayer;
         }
     }
-    function zovidEaten() { //: Function for when the player picks up a item to eat the enemies
+
+    function zovidEaten() {
         if (squares[playerCurrentIndex].classList.contains('zovid')) {
             score += 10;
             man.forEach(man => man.isScared = true);
@@ -119,10 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[playerCurrentIndex].classList.remove('zovid');
         }
     }
-    function unScareMan() { //: Makes the enemies return to their normal state
+
+    function unScareMan() {
         man.forEach(man => man.isScared = false);
     }
-    class man { //: Man also known as the enemies
+    class man {
         constructor(className, startIndex, speed) {
             this.className = className;
             this.startIndex = startIndex;
@@ -143,18 +146,18 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[man.currentIndex].classList.add('man');
     });
     man.forEach(man => moveMan(man));
+
     function moveMan(man) {
         const directions = [-1, +1, width, -width];
         let direction = directions[Math.floor(Math.random() * directions.length)];
-        man.timerId = setInterval(function () {
+        man.timerId = setInterval(function() {
             if (!squares[man.currentIndex + direction].classList.contains('man') &&
                 !squares[man.currentIndex + direction].classList.contains('wall')) {
                 squares[man.currentIndex].classList.remove(man.className);
                 squares[man.currentIndex].classList.remove('man', 'scared-man');
                 man.currentIndex += direction;
                 squares[man.currentIndex].classList.add(man.className, 'man');
-            }
-            else
+            } else
                 direction = directions[Math.floor(Math.random() * directions.length)];
             if (man.isScared) {
                 squares[man.currentIndex].classList.add('scared-man');
@@ -168,19 +171,21 @@ document.addEventListener('DOMContentLoaded', () => {
             checkForGameOver();
         }, man.speed);
     }
-    function checkForGameOver() { //: Function to engage a game over when the criteria is met
+
+    function checkForGameOver() {
         if (squares[playerCurrentIndex].classList.contains('man') &&
             !squares[playerCurrentIndex].classList.contains('scared-man')) {
             man.forEach(man => clearInterval(man.timerId));
             document.removeEventListener('keyup', movePlayer);
-            setTimeout(function () { alert("Game Over"); }, 500);
+            setTimeout(function() { location.replace("fail.html"); }, 500);
         }
     }
-    function checkForWin() { //: Function to engage a win once the game has been finished and all the dots are caught
+
+    function checkForWin() {
         if (score >= 350) {
             man.forEach(man => clearInterval(man.timerId));
             document.removeEventListener('keyup', movePlayer);
-            setTimeout(function () { alert("You have WON!"); }, 491);
+            setTimeout(function() { location.replace("pass.html"); }, 491);
         }
     }
 });
