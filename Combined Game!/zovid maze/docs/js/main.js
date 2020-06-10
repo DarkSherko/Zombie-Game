@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreDisplay = document.getElementById('score');
     const width = 28;
     let score = 0;
-    const layout = [
+    const layout = [ //:This makes up the movement grid for the player to walk on, the 0 are non walkable
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
         1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 3, 0, 0, 0, 0, 0, 0, 3, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1,
@@ -33,14 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
         1, 3, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 3, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     ];
-    const squares = [];
+    const squares = []; //: Defines the squares
     function createBoard() {
         for (let l = 0; l < layout.length; l++) {
             const square = document.createElement('div');
             grid.appendChild(square);
             squares.push(square);
             if (layout[l] === 0) {
-                squares[l].classList.add('dots');
+                squares[l].classList.add('dots'); //: Adds the dots that you need to catch to gain score
             }
             else if (layout[l] === 1) {
                 squares[l].classList.add('wall');
@@ -54,9 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     createBoard();
-    let playerCurrentIndex = 30;
+    let playerCurrentIndex = 30; //: Defines the player index spawn position
     squares[playerCurrentIndex].classList.add('player');
-    function movePlayer(e) {
+    function movePlayer(e) { //: The primary movement function
         squares[playerCurrentIndex].classList.remove('player');
         switch (e.keyCode) {
             case 65:
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout;
                 break;
         }
-        function scrollToPlayer() {
+        function scrollToPlayer() { //: Keeps the player in the middle of the screen
             document.getElementById('player').scrollIntoView({ behavior: 'smooth' });
         }
         squares[playerCurrentIndex].classList.add('player');
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkForWin();
     }
     document.addEventListener('keyup', movePlayer);
-    function dotEaten() {
+    function dotEaten() { //: Function describing what happens when a dot is eaten in game
         if (squares[playerCurrentIndex].classList.contains('dots')) {
             score++;
             scoreDisplay.innerHTML = score;
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollToPlayer;
         }
     }
-    function zovidEaten() {
+    function zovidEaten() { //: Function for when the player picks up a item to eat the enemies
         if (squares[playerCurrentIndex].classList.contains('zovid')) {
             score += 10;
             man.forEach(man => man.isScared = true);
@@ -119,10 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[playerCurrentIndex].classList.remove('zovid');
         }
     }
-    function unScareMan() {
+    function unScareMan() { //: Makes the enemies return to their normal state
         man.forEach(man => man.isScared = false);
     }
-    class man {
+    class man { //: Man also known as the enemies
         constructor(className, startIndex, speed) {
             this.className = className;
             this.startIndex = startIndex;
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             checkForGameOver();
         }, man.speed);
     }
-    function checkForGameOver() {
+    function checkForGameOver() { //: Function to engage a game over when the criteria is met
         if (squares[playerCurrentIndex].classList.contains('man') &&
             !squares[playerCurrentIndex].classList.contains('scared-man')) {
             man.forEach(man => clearInterval(man.timerId));
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function () { alert("Game Over"); }, 500);
         }
     }
-    function checkForWin() {
+    function checkForWin() { //: Function to engage a win once the game has been finished and all the dots are caught
         if (score >= 350) {
             man.forEach(man => clearInterval(man.timerId));
             document.removeEventListener('keyup', movePlayer);
