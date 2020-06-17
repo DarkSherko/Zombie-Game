@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#game{
+    background-image: url(../style/images/parkour.jpg);
+    width: 1000px;
+    height:600px;
+    border: 1px solid black;
+}
+#character{
+    background-image: url(../style/images/zombie11.png);
+    width: 45px;
+    height: 87px;
+    top: 480px;
+    left: 150px;
+    position: relative;
+    background-size: contain;
+}
+.animate{
+    animation: jump 1s;
+}
+@keyframes jump{
+    0%{top: 480px;}
+    30%{top: 330px}
+    70%{top: 330px;}
+    100%{top: 480px;}
+}
+#enemy{
+    background-image: url(../style/images/enemy.png);
+    width: 45px;
+    height: 87px;
+    top: 393px;
+    left: 600px;
+    position: relative;
+    background-size: contain;
+    animation: enemy 1s infinite linear;
+}
+@keyframes enemy{
+    0%{left:950px;}
+    100%{left:-40px;}
+}
+
+.score{
+    width: 1000px;
+    height:600px;
+    color: white;
+}

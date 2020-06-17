@@ -85,6 +85,12 @@ var Game = (function () {
         else if (ball.y + ball.div.clientHeight > window.innerHeight) {
             ball.bounceY();
         }
+        else if (ball.x < 0) {
+            ball.bounceX();
+        }
+        else if (ball.x + ball.div.clientWidth > window.innerWidth) {
+            ball.bounceX();
+        }
     };
     Game.prototype.checkCollision = function (a, b) {
         return (a.left <= b.right &&
@@ -128,7 +134,7 @@ var Paddle = (function () {
         if (x != 0)
             x -= this.div.clientWidth;
         this.x = x;
-        this.y = 200;
+        this.y = 400;
         window.addEventListener("keydown", function (e) { return _this.onKeyDown(e); });
         window.addEventListener("keyup", function (e) { return _this.onKeyUp(e); });
     }
@@ -169,7 +175,7 @@ var Paddle = (function () {
         }
     };
     Paddle.prototype.update = function () {
-        var newY = this.y - this.upSpeed + this.downSpeed;
+        var newY = this.y - this.upSpeed + this.downSpeed + this.leftSpeed + this.rightSpeed;
         if (newY > 0 && newY + 100 < window.innerHeight)
             this.y = newY;
         this.div.style.transform = "translate(" + this.x + "px, " + this.y + "px)";
