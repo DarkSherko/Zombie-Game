@@ -22,11 +22,9 @@ var checkDead = setInterval(function(){
     } else {
         score++
         scoreDisplay.innerHTML = score
+
+        if (score >= 1000){
+            setTimeout(function(){location.replace("pass.html");});
+        }
     }
 }, 10);
-
-function checkForWin(){
-    if (score == 1000){
-        setTimeout(function(){location.replace("pass.html");});
-    }
-}

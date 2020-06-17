@@ -40,9 +40,74 @@
     0%{left:950px;}
     100%{left:-40px;}
 }
-
 .score{
     width: 1000px;
     height:600px;
     color: white;
+}
+.home{
+    min-height: 100vh;
+    background-image: url("images/achtergrond.png");
+    background-size: cover;
+    background-position: center;
+    padding: 15px;
+}
+.home .full-screen{
+    min-height: 100vh;
+}
+.home .home-content{
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.home .home-content .block{
+    flex:0 0 75%;
+    max-width: 75%;
+    padding-left: 425px;
+    margin-top: 70px;
+}
+.home .home-content .block h6{
+    color: rebeccapurple;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 175px;
+    padding-left: 150px;
+}
+.home .home-content .block h1{
+    color: rebeccapurple;
+    font-size: 50px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+.home .home-content .block h3{
+    color: #008000;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 150px;
+    padding-right: 450px;
+}
+.home .home-content .block .button {
+    padding-top: 20px;
+    padding-left: 250px;
+}
+.home .home-content .block .button a{
+    border-radius: 4px;
+    color: rebeccapurple;
+    border: 1px solid rebeccapurple;
+    padding: 12px 25px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .5s ease;
+    background-color: transparent;
+}
+.home .home-content .block .button a:hover{
+    background-color: rebeccapurple;
+    color: #ffffff;
 }
