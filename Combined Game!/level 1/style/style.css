@@ -40,11 +40,6 @@
     0%{left:950px;}
     100%{left:-40px;}
 }
-.score{
-    width: 1000px;
-    height:600px;
-    color: white;
-}
 .home{
     min-height: 100vh;
     background-image: url("images/achtergrond.png");
