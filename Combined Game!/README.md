@@ -12,8 +12,8 @@
 Your goal is to defeat the virus by avioding humans as much as you can. 
 While playing the levels of the game you develop skills which you need to defeat the virus.</p><br>
 
-<h1>Click start</h1> 
-<h1>Level 1</h1>
+<h3>Click start</h3> 
+<h3>Level 1</h3>
 <li>
 	<ul>
 - Avoid the human
