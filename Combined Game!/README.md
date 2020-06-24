@@ -31,6 +31,8 @@ While playing the levels of the game you develop skills which you need to defeat
  	Arrow up is jump
 	Arrow left is moving to the left
  	Arrow right is moving to the right<br>
+	</ul>
+</li>		
 <h3>Level 3</h3>
 <li>
 	<ul>
