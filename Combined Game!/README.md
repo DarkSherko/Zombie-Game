@@ -1,26 +1,29 @@
-ZOVID-19
-Zombie – Train – Challenge<br>
+<h1>ZOVID-19</h1>
+<h2>Zombie – Train – Challenge</h2><br>
 
-TEAM 1
-Dre Artsen 			(Level 3)
-Merve Onal 			(Level 1)
-Indra Doerga 			(Level 2)
-Sherko AbdulAziz 		(Level 4)<br>
+<h2>TEAM 1</h2>
+<p>Dre Artsen 			(Level 3)</p><br>
+<p>Merve Onal 			(Level 1)</p><br>
+<p>Indra Doerga 		(Level 2)</p><br>
+<p>Sherko AbdulAziz 		(Level 4)</p><br>
 
-
- 
- 
-How to play
-You are a zombie infected a virus. 
+<h3>How to play</h3>
+<p>You are a zombie infected a virus. 
 Your goal is to defeat the virus by avioding humans as much as you can. 
-While playing the levels of the game you develop skills which you need to defeat the virus.<br>
+While playing the levels of the game you develop skills which you need to defeat the virus.</p><br>
 
-Click start 
-Level 1
+<h1>Click start</h1> 
+<h1>Level 1</h1>
+<li>
+	<ul>
 - Avoid the human
 - Earn 3000 point to pass the game
 - Use your left button to jump over the human<br>
-Level 2
+	</ul>
+</li>
+<h3>Level 2</h3>
+<li>
+	<ul>
 - Collect the brain items 
 - Earn 12 points
 - Avoid the human
@@ -28,7 +31,9 @@ Level 2
  	Arrow up is jump
 	Arrow left is moving to the left
  	Arrow right is moving to the right<br>
-Level 3
+<h3>Level 3</h3>
+<li>
+	<ul>
 - Collect the items
 - earm 300 points
 - Avoid the human
@@ -37,7 +42,11 @@ Level 3
 	 A - is moving to the left
  	 S - is moving down
  	 D - is moving to the right<br>
-Level 4
+	</ul>
+</li>
+<h3>Level 4</h3>
+<li>
+	<ul>
 - Defeat the humans
 - Defeat the virus 
 - Earn 12 points
@@ -45,11 +54,13 @@ Level 4
  	Arrow up is jump
 	Arrow left is moving to the left
  	Arrow right is moving to the right<br>
+	</ul>
+</li>
 
-After defeating the virus you are able to choose every level you want to play freely. 
-On the level select button. <br>
+<p>After defeating the virus you are able to choose every level you want to play freely. 
+On the level select button.</p> <br>
    
-Play now!
+<h3>Play now!</h3>
 https://mr-lies.github.io/Zovid/
          
  
