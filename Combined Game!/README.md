@@ -1,5 +1,6 @@
-<h1>ZOVID-19</h1>
+<h1>Handleiding</h1>
 <h2>Zombie – Train – Challenge</h2><br>
+<h2>Zovid-19</h2>
 
 <h2>TEAM 1</h2>
 <p>Dre Artsen 			(Level 3)</p><br>
